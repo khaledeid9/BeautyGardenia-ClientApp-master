@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "785869759694",
+    "project_id": "beauty-gardenia-d8768",
+    "storage_bucket": "beauty-gardenia-d8768.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:785869759694:android:77d9943505a6a2c319dc9f",
+        "android_client_info": {
+          "package_name": "com.beautygardenia.market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "785869759694-qbbg98qvkrskls4e24kiag5mjd13pu4t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beautygardenia.market",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "785869759694-2nsqb6678hl88qu1mug5o466qn3q3hda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkeRV7iaUEUbieOclXClFhBRhCwEBgQx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "785869759694-2nsqb6678hl88qu1mug5o466qn3q3hda.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
