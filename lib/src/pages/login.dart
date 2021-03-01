@@ -136,10 +136,10 @@ class _LoginWidgetState extends StateMVC<LoginWidget> {
                       SizedBox(height: 15),
                       FlatButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: 
-                          (context){
-                            return LoginWithPhone();
-                          }));
+                          // Navigator.push(context, MaterialPageRoute(builder: 
+                          // (context){
+                          //   return LoginWithPhone();
+                          // }));
                         },
                         shape: StadiumBorder(),
                         textColor: Theme.of(context).hintColor,
