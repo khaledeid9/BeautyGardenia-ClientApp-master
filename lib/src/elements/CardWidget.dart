@@ -83,9 +83,9 @@ class CardWidget extends StatelessWidget {
                         style: Theme.of(context).textTheme.caption,
                       ),
                       SizedBox(height: 5),
-                      Row(
-                        children: Helper.getStarsList(double.parse(market.rate)),
-                      ),
+                      // Row(
+                      //   children: Helper.getStarsList(double.parse(market.rate)),
+                      // ),
                     ],
                   ),
                 ),
@@ -93,15 +93,25 @@ class CardWidget extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: <Widget>[
-                      FlatButton(
-                        padding: EdgeInsets.all(0),
-                        onPressed: () {
-                          Navigator.of(context).pushNamed('/Pages', arguments: new RouteArgument(id: '1', param: market));
-                        },
-                        child: Icon(Icons.directions, color: Theme.of(context).primaryColor),
-                        color: Theme.of(context).accentColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                      // FlatButton(
+                      //   padding: EdgeInsets.all(0),
+                      //   onPressed: () {
+                      //     //Navigator.of(context).pushNamed('/Pages', arguments: new RouteArgument(id: '1', param: market));
+                          
+                      //   },
+                      //   child: Icon(Icons.directions, color: Theme.of(context).primaryColor),
+                      //   color: Theme.of(context).accentColor,
+                      //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+                      // ),
+
+                      Text(
+                        S.of(context).see_all,
+                        overflow: TextOverflow.fade,
+                        softWrap: false,
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
+                      
+
 
                       // market.distance > 0
                       //     ? Text(

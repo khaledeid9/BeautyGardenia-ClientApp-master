@@ -5,6 +5,7 @@ import '../models/market.dart';
 import '../models/route_argument.dart';
 import 'CardWidget.dart';
 
+
 // ignore: must_be_immutable
 class CardsCarouselWidget extends StatefulWidget {
   List<Market> marketsList;
@@ -30,7 +31,7 @@ class _CardsCarouselWidgetState extends State<CardsCarouselWidget> {
         : Container(
             height: 288,
             child: ListView.builder(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.vertical,
               itemCount: widget.marketsList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(

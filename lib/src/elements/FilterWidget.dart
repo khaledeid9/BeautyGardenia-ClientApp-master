@@ -6,9 +6,12 @@ import '../../generated/l10n.dart';
 import '../controllers/filter_controller.dart';
 import '../elements/CircularLoadingWidget.dart';
 import '../models/filter.dart';
+import '../models/market.dart';
+
 
 class FilterWidget extends StatefulWidget {
   final ValueChanged<Filter> onFilter;
+  
 
   FilterWidget({Key key, this.onFilter}) : super(key: key);
 
@@ -17,6 +20,10 @@ class FilterWidget extends StatefulWidget {
 }
 
 class _FilterWidgetState extends StateMVC<FilterWidget> {
+
+  int index_1 = 1 ;
+  int index_2 = 2 ;
+
   FilterController _con;
 
   _FilterWidgetState() : super(FilterController()) {
@@ -116,12 +123,70 @@ class _FilterWidgetState extends StateMVC<FilterWidget> {
                       ? CircularLoadingWidget(height: 100)
                       : ExpansionTile(
                           title: Text(S.of(context).fields),
+                          //children: List.generate(2, (index) {
+                           
+                          //     children: [
+                          //       CheckboxListTile(
+                          //         controlAffinity: ListTileControlAffinity.trailing,
+                          //         value: _con.fields.elementAt(0).selected,
+                          //         onChanged: (value) {
+                          //           _con.onChangeFieldsFilter(0);
+                                    
+                          //         },
+                          //         title: Text(
+                          //          _con.fields.elementAt(0).name,
+                          //           overflow: TextOverflow.fade,
+                          //           softWrap: false,
+                          //           maxLines: 1,
+                          //         ),
+                                  
+                          //       ),
+
+                          //       CheckboxListTile(
+                          //         controlAffinity: ListTileControlAffinity.trailing,
+                          //         value: _con.fields.elementAt(1).selected,
+                          //         onChanged: (value) {
+                          //           _con.onChangeFieldsFilter(1);
+                                    
+                          //         },
+                          //         title: Text(
+                          //          S.of(context).beauty_product,
+                          //           overflow: TextOverflow.fade,
+                          //           softWrap: false,
+                          //           maxLines: 1,
+                          //         ),
+                                  
+                          //       ),
+
+                          //       CheckboxListTile(
+                          //         controlAffinity: ListTileControlAffinity.trailing,
+                          //         value: _con.fields.elementAt(2).selected,
+                          //         onChanged: (value) {
+                          //           _con.onChangeFieldsFilter(2);
+                          //         },
+                          //         title: Text(
+                          //           S.of(context).services,
+                          //           overflow: TextOverflow.fade,
+                          //           softWrap: false,
+                          //           maxLines: 1,
+                          //         ),
+                          //       ),
+                                
+
+                          //     ],
+                          
+                          //         initiallyExpanded: true,
+
+                          // ),
+
                           children: List.generate(_con.fields.length, (index) {
+                            print('-----index $index ----');
                             return CheckboxListTile(
                               controlAffinity: ListTileControlAffinity.trailing,
                               value: _con.fields.elementAt(index).selected,
                               onChanged: (value) {
                                 _con.onChangeFieldsFilter(index);
+                                
                               },
                               title: Text(
                                 _con.fields.elementAt(index).name,
@@ -133,6 +198,8 @@ class _FilterWidgetState extends StateMVC<FilterWidget> {
                           }),
                           initiallyExpanded: true,
                         ),
+
+            
                 ],
               ),
             ),

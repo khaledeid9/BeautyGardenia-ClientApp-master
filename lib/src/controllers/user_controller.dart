@@ -93,6 +93,51 @@ class UserController extends ControllerMVC {
 //--------------------------------------------------------------
 
 
+ void registerwithPhoneNumber() async {
+     FocusScope.of(context).unfocus();
+    // if (loginFormKey.currentState.validate()) {
+    //   loginFormKey.currentState.save();
+
+    print('----- enterd the function succesfully here :  ---------');
+
+      Overlay.of(context).insert(loader);
+      repository.register_2(user).then((value) {
+        if (value != null && value.apiToken != null) {
+          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: 2);
+        } else {
+          scaffoldKey?.currentState?.showSnackBar(SnackBar(
+            content: Text(S.of(context).wrong_email_or_password),
+          ));
+        }
+      }).catchError((e) {
+        //-------------------
+          repository.login(user).then((value) {
+        if (value != null && value.apiToken != null) {
+          Navigator.of(scaffoldKey.currentContext).pushReplacementNamed('/Pages', arguments: 2);
+        } else {
+          scaffoldKey?.currentState?.showSnackBar(SnackBar(
+            content: Text(S.of(context).wrong_email_or_password),
+          ));
+        }
+      });
+
+        //---------------------
+        loader.remove();
+        scaffoldKey?.currentState?.showSnackBar(SnackBar(
+          content: Text(S.of(context).this_email_account_exists),
+          
+        ));
+
+        
+
+      }).whenComplete(() {
+        Helper.hideLoader(loader);
+      });
+    
+  }
+
+
+
   //--------------------------------------------------------------
 
  void registerwithGoogle() async {

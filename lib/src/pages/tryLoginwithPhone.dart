@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:markets/src/pages/home.dart';
+import 'package:markets/src/pages/mobile_verification.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 class LoginWithPhone extends StatefulWidget {
 
@@ -76,9 +79,11 @@ void signInWithPhoneNumber() async {
     final User user = (await _auth.signInWithCredential(credential)).user;
     
     showSnackbar("Successfully signed in UID: ${user.uid}");
+    print("Successfully signed in UID: ${user.uid}");
+    
     signing = true;
   } catch (e) {
-    showSnackbar("Failed to sign in: " + e.toString());
+    print("Failed to sign in: " + e.toString());
   }
 }
 
@@ -98,20 +103,40 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  TextFormField(
+                  // TextFormField(
+                  //   controller: _phoneNumberController,
+                  //   decoration: const InputDecoration(labelText: 'Phone number (+xx xxx-xxx-xxxx)'),
+                  // ),
+                  
+                  // Container(
+                  //   padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  //   alignment: Alignment.center,
+                  //   child: RaisedButton(
+                  //     color: Colors.greenAccent[400],
+                  //     child: Text("Verify Number"),
+                  //     onPressed: () async {
+                  //       mobileRegistration();
+                  //     },
+                  //   ),
+                  // ),
+                  
+                  IntlPhoneField(
                     controller: _phoneNumberController,
-                    decoration: const InputDecoration(labelText: 'Phone number (+xx xxx-xxx-xxxx)'),
+                  decoration: InputDecoration(
+                    labelText: 'Phone Number',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(),
+                    ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    alignment: Alignment.center,
-                    child: RaisedButton(child: Text("Get current number"),
-                        onPressed: () async => {
-                          _phoneNumberController.text = await _autoFill.hint
-                        },
-                        color: Colors.greenAccent[700]),
-                  ),
-                  Container(
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
+                Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     alignment: Alignment.center,
                     child: RaisedButton(
@@ -122,6 +147,7 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                       },
                     ),
                   ),
+
                   TextFormField(
                     controller: _smsController,
                     decoration: const InputDecoration(labelText: 'Verification code'),
@@ -132,10 +158,20 @@ class _LoginWithPhoneState extends State<LoginWithPhone> {
                     child: RaisedButton(
                         color: Colors.greenAccent[200],
                         onPressed: () async {
+
                           signInWithPhoneNumber();
+                          if(signing == true)
+                          {
+                            Navigator.push(context, MaterialPageRoute(builder: 
+                          (context){
+                            return HomeWidget();
+                          }));
+                          }
                         },
                         child: Text("Sign in")),
                   ),
+
+
                 ],
               )
           ),

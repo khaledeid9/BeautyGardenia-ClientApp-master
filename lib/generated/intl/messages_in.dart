@@ -110,6 +110,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "help_supports" : MessageLookupByLibrary.simpleMessage("Help & Supports"),
     "hint_full_address" : MessageLookupByLibrary.simpleMessage("12 Street, City 21663, Country"),
     "home" : MessageLookupByLibrary.simpleMessage("Home"),
+    "beauty_product" : MessageLookupByLibrary.simpleMessage("Beauty Products"),
+    "services" : MessageLookupByLibrary.simpleMessage("Beauty Services"),
     "home_address" : MessageLookupByLibrary.simpleMessage("Home Address"),
     "how_would_you_rate_this_market" : MessageLookupByLibrary.simpleMessage("How would you rate this market ?"),
     "how_would_you_rate_this_market_" : MessageLookupByLibrary.simpleMessage("How would you rate this market ?"),

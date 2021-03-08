@@ -99,15 +99,19 @@ void getCurrentusr() async
                       child: SizedBox(
                         height: 45,
                         child: Container(
-                         
-                    child: Image(
-                        image: AssetImage('assets/img/logo.png'),
-                        fit: BoxFit.fitHeight,
-                        
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                      child: Image(
+                          image: AssetImage('assets/img/Logoicon.png'),
+                          fit: BoxFit.fitHeight,
+                          
+                      ),
                     ),
                   ),
                       ),
-                ),
+                
               ],
             );
           },
@@ -149,7 +153,7 @@ void getCurrentusr() async
                           children: [
                             Expanded(
                               child: Text(
-                                S.of(context).top_markets,
+                                S.of(context).services_home,
                                 style: Theme.of(context).textTheme.headline4,
                                 maxLines: 1,
                                 softWrap: false,
@@ -256,21 +260,21 @@ void getCurrentusr() async
                 case 'trending_week':
                   return ProductsCarouselWidget(productsList: _con.trendingProducts, heroTag: 'home_product_carousel');
                 case 'categories_heading':
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: ListTile(
-                      dense: true,
-                      contentPadding: EdgeInsets.symmetric(vertical: 0),
-                      leading: Icon(
-                        Icons.category,
-                        color: Theme.of(context).hintColor,
-                      ),
-                      title: Text(
-                        S.of(context).product_categories,
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    ),
-                  );
+                  // return Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                  //   child: ListTile(
+                  //     dense: true,
+                  //     contentPadding: EdgeInsets.symmetric(vertical: 0),
+                  //     leading: Icon(
+                  //       Icons.category,
+                  //       color: Theme.of(context).hintColor,
+                  //     ),
+                  //     title: Text(
+                  //       S.of(context).product_categories,
+                  //       style: Theme.of(context).textTheme.headline4,
+                  //     ),
+                  //   ),
+                  // );
                 case 'categories':
                   return CategoriesCarouselWidget(
                     categories: _con.categories,

@@ -12,6 +12,7 @@ import '../pages/orders.dart';
 import '../pages/messages.dart';
 import '../pages/favorites.dart';
 import '../pages/help.dart';
+import '../pages/mobile_verification.dart';
 
 
 class DrawerWidget extends StatefulWidget {
@@ -245,6 +246,7 @@ class _DrawerWidgetState extends StateMVC<DrawerWidget> {
               if (currentUser.value.apiToken != null) {
                 logout().then((value) async {
                  await signOut();
+                 await signOut_mobile();
                   Navigator.of(context).pushNamedAndRemoveUntil('/Pages', (Route<dynamic> route) => false, arguments: 2);
                 });
               } else {

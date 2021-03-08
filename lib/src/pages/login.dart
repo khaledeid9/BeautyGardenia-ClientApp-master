@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:markets/src/pages/phoneNumberFiles/loginPage.dart';
 import 'package:markets/src/pages/signUpWithPhone.dart';
 import 'package:markets/src/pages/tryLoginwithPhone.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
@@ -9,6 +10,7 @@ import '../elements/BlockButtonWidget.dart';
 import '../helpers/app_config.dart' as config;
 import '../helpers/helper.dart';
 import '../repository/user_repository.dart' as userRepo;
+import '../pages/mobile_verification.dart';
 
 class LoginWidget extends StatefulWidget {
   @override
@@ -138,8 +140,14 @@ class _LoginWidgetState extends StateMVC<LoginWidget> {
                         onPressed: () {
                           // Navigator.push(context, MaterialPageRoute(builder: 
                           // (context){
-                          //   return LoginWithPhone();
+                          //   return LoginScreen();
                           // }));
+
+                          Navigator.push(context, MaterialPageRoute(builder: 
+                          (context){
+                            return MobileVerification();
+                          }));
+
                         },
                         shape: StadiumBorder(),
                         textColor: Theme.of(context).hintColor,

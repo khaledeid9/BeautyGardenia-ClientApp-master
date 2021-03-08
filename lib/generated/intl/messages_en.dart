@@ -81,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "delivery_or_pickup" : MessageLookupByLibrary.simpleMessage("Delivery or Pickup"),
     "description" : MessageLookupByLibrary.simpleMessage("Description"),
     "details" : MessageLookupByLibrary.simpleMessage("Details"),
+    "beauty_product" : MessageLookupByLibrary.simpleMessage("Beauty Products"),
+    "services" : MessageLookupByLibrary.simpleMessage("Beauty Services"),
     "discover__explorer" : MessageLookupByLibrary.simpleMessage("Discover & Explorer"),
     "dont_have_any_item_in_the_notification_list" : MessageLookupByLibrary.simpleMessage("Don\'t have any item in the notification list"),
     "dont_have_any_item_in_your_cart" : MessageLookupByLibrary.simpleMessage("D\'ont have any item in your cart"),

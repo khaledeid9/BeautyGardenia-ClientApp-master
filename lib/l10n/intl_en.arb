@@ -1,9 +1,12 @@
 {
   "search_for_markets_or_products": "Search for markets or products",
   "top_markets": "Top Markets",
+  "services_home": "Services",
+  "beauty_product": "Beauty Products",
+  "services": "Beauty Services",
   "ordered_by_nearby_first": "Ordered by Nearby first",
   "trending_this_week": "Trending This Week",
-  "product_categories": "Product Categories",
+  "product_categories": "Products",
   "most_popular": "Most Popular",
   "recent_reviews": "Recent Reviews",
   "login": "Login",

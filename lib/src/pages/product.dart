@@ -132,21 +132,21 @@ class _ProductWidgetState extends StateMVC<ProductWidget> {
                                 ),
                                 Row(
                                   children: <Widget>[
-                                    Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 3),
-                                      decoration: BoxDecoration(
-                                          color: Helper.canDelivery(_con.product.market) && _con.product.deliverable ? Colors.green : Colors.orange,
-                                          borderRadius: BorderRadius.circular(24)),
-                                      child: Helper.canDelivery(_con.product.market) && _con.product.deliverable
-                                          ? Text(
-                                              S.of(context).deliverable,
-                                              style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
-                                            )
-                                          : Text(
-                                              S.of(context).not_deliverable,
-                                              style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
-                                            ),
-                                    ),
+                                    // Container(
+                                    //   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 3),
+                                    //   decoration: BoxDecoration(
+                                    //       color: Helper.canDelivery(_con.product.market) && _con.product.deliverable ? Colors.green : Colors.orange,
+                                    //       borderRadius: BorderRadius.circular(24)),
+                                    //   child: Helper.canDelivery(_con.product.market) && _con.product.deliverable
+                                    //       ? Text(
+                                    //           S.of(context).deliverable,
+                                    //           style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
+                                    //         )
+                                    //       : Text(
+                                    //           S.of(context).not_deliverable,
+                                    //           style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
+                                    //         ),
+                                    // ),
                                     Expanded(child: SizedBox(height: 0)),
 
                                     //------------------------------------------------------
@@ -179,22 +179,22 @@ class _ProductWidgetState extends StateMVC<ProductWidget> {
                                 ),
                                 Divider(height: 20),
                                 Text(Helper.skipHtml(_con.product.description)),
-                                ListTile(
-                                  dense: true,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                                  leading: Icon(
-                                    Icons.add_circle,
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                                  title: Text(
-                                    S.of(context).options,
-                                    style: Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                  subtitle: Text(
-                                    S.of(context).select_options_to_add_them_on_the_product,
-                                    style: Theme.of(context).textTheme.caption,
-                                  ),
-                                ),
+                                // ListTile(
+                                //   dense: true,
+                                //   contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                //   leading: Icon(
+                                //     Icons.add_circle,
+                                //     color: Theme.of(context).hintColor,
+                                //   ),
+                                //   title: Text(
+                                //     S.of(context).options,
+                                //     style: Theme.of(context).textTheme.subtitle1,
+                                //   ),
+                                //   subtitle: Text(
+                                //     S.of(context).select_options_to_add_them_on_the_product,
+                                //     style: Theme.of(context).textTheme.caption,
+                                //   ),
+                                // ),
                                 _con.product.optionGroups == null
                                     ? CircularLoadingWidget(height: 100)
                                     : ListView.separated(
@@ -203,18 +203,18 @@ class _ProductWidgetState extends StateMVC<ProductWidget> {
                                           var optionGroup = _con.product.optionGroups.elementAt(optionGroupIndex);
                                           return Wrap(
                                             children: <Widget>[
-                                              ListTile(
-                                                dense: true,
-                                                contentPadding: EdgeInsets.symmetric(vertical: 0),
-                                                leading: Icon(
-                                                  Icons.add_circle_outline,
-                                                  color: Theme.of(context).hintColor,
-                                                ),
-                                                title: Text(
-                                                  optionGroup.name,
-                                                  style: Theme.of(context).textTheme.subtitle1,
-                                                ),
-                                              ),
+                                              // ListTile(
+                                              //   dense: true,
+                                              //   contentPadding: EdgeInsets.symmetric(vertical: 0),
+                                              //   leading: Icon(
+                                              //     Icons.add_circle_outline,
+                                              //     color: Theme.of(context).hintColor,
+                                              //   ),
+                                              //   title: Text(
+                                              //     optionGroup.name,
+                                              //     style: Theme.of(context).textTheme.subtitle1,
+                                              //   ),
+                                              // ),
                                               ListView.separated(
                                                 padding: EdgeInsets.all(0),
                                                 itemBuilder: (context, optionIndex) {
@@ -241,21 +241,21 @@ class _ProductWidgetState extends StateMVC<ProductWidget> {
                                         primary: false,
                                         shrinkWrap: true,
                                       ),
-                                ListTile(
-                                  dense: true,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                                  leading: Icon(
-                                    Icons.recent_actors,
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                                  title: Text(
-                                    S.of(context).reviews,
-                                    style: Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                ),
-                                ReviewsListWidget(
-                                  reviewsList: _con.product.productReviews,
-                                ),
+                                // ListTile(
+                                //   dense: true,
+                                //   contentPadding: EdgeInsets.symmetric(vertical: 10),
+                                //   leading: Icon(
+                                //     Icons.recent_actors,
+                                //     color: Theme.of(context).hintColor,
+                                //   ),
+                                //   title: Text(
+                                //     S.of(context).reviews,
+                                //     style: Theme.of(context).textTheme.subtitle1,
+                                //   ),
+                                // ),
+                                // ReviewsListWidget(
+                                //   reviewsList: _con.product.productReviews,
+                                // ),
                               ],
                             ),
                           ),
@@ -264,8 +264,8 @@ class _ProductWidgetState extends StateMVC<ProductWidget> {
                     ),
                   ),
                   Positioned(
-                    top: 32,
-                    right: 20,
+                    top: 70,
+                    right: 10,
                     child: _con.loadCart
                         ? SizedBox(
                             width: 60,

@@ -38,27 +38,29 @@ class FilterController extends ControllerMVC {
 
   void listenForFields({String message}) async {
     fields.add(new Field.fromJSON({'id': '0', 'name': S.of(context).all, 'selected': true}));
+    fields.add(new Field.fromJSON({'id': '1', 'name': S.of(context).beauty_product, 'selected': false}));
+    fields.add(new Field.fromJSON({'id': '2', 'name': S.of(context).services, 'selected': false}));
     final Stream<Field> stream = await getFields();
-    stream.listen((Field _field) {
-      setState(() {
-        if (filter.fields.contains(_field)) {
-          _field.selected = true;
-          fields.elementAt(0).selected = false;
-        }
-        fields.add(_field);
-      });
-    }, onError: (a) {
-      print(a);
-      scaffoldKey?.currentState?.showSnackBar(SnackBar(
-        content: Text(S.of(context).verify_your_internet_connection),
-      ));
-    }, onDone: () {
-      if (message != null) {
-        scaffoldKey?.currentState?.showSnackBar(SnackBar(
-          content: Text(message),
-        ));
-      }
-    });
+    // stream.listen((Field _field) {
+    //   setState(() {
+    //     if (filter.fields.contains(_field)) {
+    //       _field.selected = true;
+    //       fields.elementAt(0).selected = false;
+    //     }
+    //     fields.add(_field);
+    //   });
+    // }, onError: (a) {
+    //   print(a);
+    //   scaffoldKey?.currentState?.showSnackBar(SnackBar(
+    //     content: Text(S.of(context).verify_your_internet_connection),
+    //   ));
+    // }, onDone: () {
+    //   if (message != null) {
+    //     scaffoldKey?.currentState?.showSnackBar(SnackBar(
+    //       content: Text(message),
+    //     ));
+    //   }
+    // });
   }
 
   Future<void> refreshFields() async {

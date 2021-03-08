@@ -45,15 +45,57 @@ class S {
     );
   }
 
-  /// `Services`
+  /// `Top Markets`
   String get top_markets {
     return Intl.message(
-      'Services',
-      name: 'Services',
+      'Top Markets',
+      name: 'top_markets',
       desc: '',
       args: [],
     );
   }
+
+  /// `Services`
+  String get services_home {
+    return Intl.message(
+      'Services',
+      name: 'services_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message(
+      'See All',
+      name: 'see_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+   /// `BeautyProducts`
+  String get beauty_product {
+    return Intl.message(
+      'Beauty Products',
+      name: 'beauty_product',
+      desc: '',
+      args: [],
+    );
+  }
+
+   /// `BeautyServices`
+  String get services {
+    return Intl.message(
+      'Beauty Services',
+      name: 'services',
+      desc: '',
+      args: [],
+    );
+  }
+
+
 
   /// `Ordered by Nearby first`
   String get ordered_by_nearby_first {
@@ -78,8 +120,8 @@ class S {
   /// `Products`
   String get product_categories {
     return Intl.message(
-      'Products',
-      name: 'products',
+      'products',
+      name: 'product_categories',
       desc: '',
       args: [],
     );
@@ -1804,6 +1846,8 @@ class S {
       args: [],
     );
   }
+
+
 
   /// `This product was added to cart`
   String get this_product_was_added_to_cart {

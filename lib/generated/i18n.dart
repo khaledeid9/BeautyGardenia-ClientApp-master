@@ -25,12 +25,17 @@ class $en extends S {
   const $en();
 }
 
+class $ar extends S {
+  const $ar();
+}
+
 class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
   const GeneratedLocalizationsDelegate();
 
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale("en", ""),
+      Locale("ar", ""),
     ];
   }
 
@@ -57,6 +62,9 @@ class GeneratedLocalizationsDelegate extends LocalizationsDelegate<S> {
       switch (lang) {
         case "en":
           S.current = const $en();
+          return SynchronousFuture<S>(S.current);
+        case "ar":
+          S.current = const $ar();
           return SynchronousFuture<S>(S.current);
         default:
         // NO-OP.

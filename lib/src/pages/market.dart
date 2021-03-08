@@ -106,23 +106,23 @@ class _MarketWidgetState extends StateMVC<MarketWidget> {
                                     ),
                                     SizedBox(
                                       height: 32,
-                                      child: Chip(
-                                        padding: EdgeInsets.all(0),
-                                        label: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            Text(_con.market.rate,
-                                                style: Theme.of(context).textTheme.bodyText1.merge(TextStyle(color: Theme.of(context).primaryColor))),
-                                            Icon(
-                                              Icons.star_border,
-                                              color: Theme.of(context).primaryColor,
-                                              size: 16,
-                                            ),
-                                          ],
-                                        ),
-                                        backgroundColor: Theme.of(context).accentColor.withOpacity(0.9),
-                                        shape: StadiumBorder(),
-                                      ),
+                                      // child: Chip(
+                                      //   padding: EdgeInsets.all(0),
+                                      //   label: Row(
+                                      //     mainAxisAlignment: MainAxisAlignment.center,
+                                      //     children: <Widget>[
+                                      //       Text(_con.market.rate,
+                                      //           style: Theme.of(context).textTheme.bodyText1.merge(TextStyle(color: Theme.of(context).primaryColor))),
+                                      //       Icon(
+                                      //         Icons.star_border,
+                                      //         color: Theme.of(context).primaryColor,
+                                      //         size: 16,
+                                      //       ),
+                                      //     ],
+                                      //   ),
+                                      //   backgroundColor: Theme.of(context).accentColor.withOpacity(0.9),
+                                      //   shape: StadiumBorder(),
+                                      // ),
                                     ),
                                   ],
                                 ),
@@ -177,144 +177,144 @@ class _MarketWidgetState extends StateMVC<MarketWidget> {
                                 child: Helper.applyHtml(context, _con.market.description),
                               ),
                               ImageThumbCarouselWidget(galleriesList: _con.galleries),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: ListTile(
-                                  dense: true,
-                                  contentPadding: EdgeInsets.symmetric(vertical: 0),
-                                  leading: Icon(
-                                    Icons.stars,
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                                  title: Text(
-                                    S.of(context).information,
-                                    style: Theme.of(context).textTheme.headline4,
-                                  ),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: const EdgeInsets.symmetric(horizontal: 20),
+                              //   child: ListTile(
+                              //     dense: true,
+                              //     contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              //     // leading: Icon(
+                              //     //   Icons.stars,
+                              //     //   color: Theme.of(context).hintColor,
+                              //     // ),
+                              //     // title: Text(
+                              //     //   S.of(context).information,
+                              //     //   style: Theme.of(context).textTheme.headline4,
+                              //     // ),
+                              //   ),
+                              // ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                                 child: Helper.applyHtml(context, _con.market.information),
                               ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                color: Theme.of(context).primaryColor,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Text(
-                                        currentUser.value.apiToken != null
-                                            ? S.of(context).forMoreDetailsPleaseChatWithOurManagers
-                                            : S.of(context).signinToChatWithOurManagers,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 3,
-                                        style: Theme.of(context).textTheme.bodyText1,
-                                      ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    SizedBox(
-                                      width: 42,
-                                      height: 42,
-                                      child: FlatButton(
-                                        padding: EdgeInsets.all(0),
-                                        disabledColor: Theme.of(context).focusColor.withOpacity(0.5),
-                                        onPressed: currentUser.value.apiToken != null
-                                            ? () {
-                                                Navigator.of(context).pushNamed('/Chat',
-                                                    arguments: RouteArgument(
-                                                        param: new Conversation(
-                                                            _con.market.users.map((e) {
-                                                              e.image = _con.market.image;
-                                                              return e;
-                                                            }).toList(),
-                                                            name: _con.market.name)));
-                                              }
-                                            : null,
-                                        child: Icon(
-                                          Icons.chat,
-                                          color: Theme.of(context).primaryColor,
-                                          size: 24,
-                                        ),
-                                        color: Theme.of(context).accentColor.withOpacity(0.9),
-                                        shape: StadiumBorder(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                color: Theme.of(context).primaryColor,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Text(
-                                        _con.market.address ?? '',
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
-                                        style: Theme.of(context).textTheme.bodyText1,
-                                      ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    SizedBox(
-                                      width: 42,
-                                      height: 42,
-                                      child: FlatButton(
-                                        padding: EdgeInsets.all(0),
-                                        onPressed: () {
-                                          Navigator.of(context).pushNamed('/Pages', arguments: new RouteArgument(id: '1', param: _con.market));
-                                        },
-                                        child: Icon(
-                                          Icons.directions,
-                                          color: Theme.of(context).primaryColor,
-                                          size: 24,
-                                        ),
-                                        color: Theme.of(context).accentColor.withOpacity(0.9),
-                                        shape: StadiumBorder(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                                margin: const EdgeInsets.symmetric(vertical: 5),
-                                color: Theme.of(context).primaryColor,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Text(
-                                        '${_con.market.phone} \n${_con.market.mobile}',
-                                        overflow: TextOverflow.ellipsis,
-                                        style: Theme.of(context).textTheme.bodyText1,
-                                      ),
-                                    ),
-                                    SizedBox(width: 10),
-                                    SizedBox(
-                                      width: 42,
-                                      height: 42,
-                                      child: FlatButton(
-                                        padding: EdgeInsets.all(0),
-                                        onPressed: () {
-                                          launch("tel:${_con.market.mobile}");
-                                        },
-                                        child: Icon(
-                                          Icons.call,
-                                          color: Theme.of(context).primaryColor,
-                                          size: 24,
-                                        ),
-                                        color: Theme.of(context).accentColor.withOpacity(0.9),
-                                        shape: StadiumBorder(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              // Container(
+                              //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                              //   margin: const EdgeInsets.symmetric(vertical: 5),
+                              //   color: Theme.of(context).primaryColor,
+                              //   child: Row(
+                              //     crossAxisAlignment: CrossAxisAlignment.center,
+                              //     children: <Widget>[
+                              //       Expanded(
+                              //         child: Text(
+                              //           currentUser.value.apiToken != null
+                              //               ? S.of(context).forMoreDetailsPleaseChatWithOurManagers
+                              //               : S.of(context).signinToChatWithOurManagers,
+                              //           overflow: TextOverflow.ellipsis,
+                              //           maxLines: 3,
+                              //           style: Theme.of(context).textTheme.bodyText1,
+                              //         ),
+                              //       ),
+                              //       SizedBox(width: 10),
+                              //       SizedBox(
+                              //         width: 42,
+                              //         height: 42,
+                              //         child: FlatButton(
+                              //           padding: EdgeInsets.all(0),
+                              //           disabledColor: Theme.of(context).focusColor.withOpacity(0.5),
+                              //           onPressed: currentUser.value.apiToken != null
+                              //               ? () {
+                              //                   Navigator.of(context).pushNamed('/Chat',
+                              //                       arguments: RouteArgument(
+                              //                           param: new Conversation(
+                              //                               _con.market.users.map((e) {
+                              //                                 e.image = _con.market.image;
+                              //                                 return e;
+                              //                               }).toList(),
+                              //                               name: _con.market.name)));
+                              //                 }
+                              //               : null,
+                              //           child: Icon(
+                              //             Icons.chat,
+                              //             color: Theme.of(context).primaryColor,
+                              //             size: 24,
+                              //           ),
+                              //           color: Theme.of(context).accentColor.withOpacity(0.9),
+                              //           shape: StadiumBorder(),
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
+                              // Container(
+                              //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                              //   margin: const EdgeInsets.symmetric(vertical: 5),
+                              //   color: Theme.of(context).primaryColor,
+                              //   child: Row(
+                              //     crossAxisAlignment: CrossAxisAlignment.center,
+                              //     children: <Widget>[
+                              //       Expanded(
+                              //         child: Text(
+                              //           _con.market.address ?? '',
+                              //           overflow: TextOverflow.ellipsis,
+                              //           maxLines: 2,
+                              //           style: Theme.of(context).textTheme.bodyText1,
+                              //         ),
+                              //       ),
+                              //       SizedBox(width: 10),
+                              //       SizedBox(
+                              //         width: 42,
+                              //         height: 42,
+                              //         child: FlatButton(
+                              //           padding: EdgeInsets.all(0),
+                              //           onPressed: () {
+                              //             Navigator.of(context).pushNamed('/Pages', arguments: new RouteArgument(id: '1', param: _con.market));
+                              //           },
+                              //           child: Icon(
+                              //             Icons.directions,
+                              //             color: Theme.of(context).primaryColor,
+                              //             size: 24,
+                              //           ),
+                              //           color: Theme.of(context).accentColor.withOpacity(0.9),
+                              //           shape: StadiumBorder(),
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
+                              // Container(
+                              //   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                              //   margin: const EdgeInsets.symmetric(vertical: 5),
+                              //   color: Theme.of(context).primaryColor,
+                              //   child: Row(
+                              //     crossAxisAlignment: CrossAxisAlignment.start,
+                              //     children: <Widget>[
+                              //       Expanded(
+                              //         child: Text(
+                              //           '${_con.market.phone} \n${_con.market.mobile}',
+                              //           overflow: TextOverflow.ellipsis,
+                              //           style: Theme.of(context).textTheme.bodyText1,
+                              //         ),
+                              //       ),
+                              //       SizedBox(width: 10),
+                              //       SizedBox(
+                              //         width: 42,
+                              //         height: 42,
+                              //         child: FlatButton(
+                              //           padding: EdgeInsets.all(0),
+                              //           onPressed: () {
+                              //             launch("tel:${_con.market.mobile}");
+                              //           },
+                              //           child: Icon(
+                              //             Icons.call,
+                              //             color: Theme.of(context).primaryColor,
+                              //             size: 24,
+                              //           ),
+                              //           color: Theme.of(context).accentColor.withOpacity(0.9),
+                              //           shape: StadiumBorder(),
+                              //         ),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // ),
                               _con.featuredProducts.isEmpty
                                   ? SizedBox(height: 0)
                                   : Padding(
@@ -351,37 +351,38 @@ class _MarketWidgetState extends StateMVC<MarketWidget> {
                                       },
                                     ),
                               SizedBox(height: 100),
-                              _con.reviews.isEmpty
-                                  ? SizedBox(height: 5)
-                                  : Padding(
-                                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                                      child: ListTile(
-                                        dense: true,
-                                        contentPadding: EdgeInsets.symmetric(vertical: 0),
-                                        leading: Icon(
-                                          Icons.recent_actors,
-                                          color: Theme.of(context).hintColor,
-                                        ),
-                                        title: Text(
-                                          S.of(context).what_they_say,
-                                          style: Theme.of(context).textTheme.headline4,
-                                        ),
-                                      ),
-                                    ),
-                              _con.reviews.isEmpty
-                                  ? SizedBox(height: 5)
-                                  : Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                                      child: ReviewsListWidget(reviewsList: _con.reviews),
-                                    ),
+                              // _con.reviews.isEmpty
+                              //     ? SizedBox(height: 5)
+                              //     : Padding(
+                              //         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                              //         child: ListTile(
+                              //           dense: true,
+                              //           contentPadding: EdgeInsets.symmetric(vertical: 0),
+                              //           leading: Icon(
+                              //             Icons.recent_actors,
+                              //             color: Theme.of(context).hintColor,
+                              //           ),
+                              //           title: Text(
+                              //             S.of(context).what_they_say,
+                              //             style: Theme.of(context).textTheme.headline4,
+                              //           ),
+                              //         ),
+                              //       ),
+
+                              // _con.reviews.isEmpty
+                              //     ? SizedBox(height: 5)
+                              //     : Padding(
+                              //         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                              //         child: ReviewsListWidget(reviewsList: _con.reviews),
+                              //       ),
                             ],
                           ),
                         ),
                       ],
                     ),
                     Positioned(
-                      top: 32,
-                      right: 20,
+                      top: 70,
+                      right: 10,
                       child: ShoppingCartFloatButtonWidget(
                           iconColor: Theme.of(context).primaryColor,
                           labelColor: Theme.of(context).hintColor,
