@@ -717,6 +717,38 @@ class S {
     );
   }
 
+
+   /// `Register with Google`
+  String get signwithGoogle {
+    return Intl.message(
+      'Register with Google',
+      name: 'signwithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+
+   /// `Register with Facebook`
+  String get signwithFacebook {
+    return Intl.message(
+      'Register with Facebook',
+      name: 'signwithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+   /// `login with Phone Number`
+  String get signwithPhone {
+    return Intl.message(
+      'login with Phone Number',
+      name: 'signwithPhone',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Should be more than 3 letters`
   String get should_be_more_than_3_letters {
     return Intl.message(

@@ -163,7 +163,7 @@ void _selectTab_2(int tabItem) {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.cut_sharp),
+              icon: Icon(Icons.local_mall),
               label: '',
             ),
             BottomNavigationBarItem(
@@ -185,7 +185,7 @@ void _selectTab_2(int tabItem) {
                   child: new Icon(Icons.home, color: Theme.of(context).primaryColor),
                 )),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.local_mall),
+              icon: new Icon(Icons.cut_sharp),
               label: '',
             ),
             BottomNavigationBarItem(

@@ -97,14 +97,16 @@ void getCurrentusr() async
                 Expanded(
                  
                       child: SizedBox(
-                        height: 45,
+                        height: 56,
                         child: Container(
+                          padding: EdgeInsets.all(2.0),
                           decoration: BoxDecoration(
                             color: Colors.white,
                                 shape: BoxShape.circle,
                               ),
                       child: Image(
-                          image: AssetImage('assets/img/Logoicon.png'),
+                          image: AssetImage('assets/img/Logo1.png'),
+                          
                           fit: BoxFit.fitHeight,
                           
                       ),
