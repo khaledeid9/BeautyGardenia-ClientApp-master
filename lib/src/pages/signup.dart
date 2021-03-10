@@ -275,7 +275,7 @@ void checkUser() async {
         elevation: 0,
         centerTitle: true,
         title: Text(
-              'Registration',
+              S.of(context).register,
               style: Theme.of(context).textTheme.headline6.merge(TextStyle(letterSpacing: 1.3)),
             ),
        
@@ -285,192 +285,191 @@ void checkUser() async {
      
         key: _con.scaffoldKey,
         resizeToAvoidBottomPadding: false,
-        body:  Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: ListView(
-                 children: [
-          
-          // Positioned(
-          //   top: 0,
-          //   child: Container(
-          //     width: config.App(context).appWidth(100),
-          //     height: config.App(context).appHeight(29.5),
-          //     decoration: BoxDecoration(color: Theme.of(context).accentColor),
-          //   ),
-          // ),
-          // Positioned(
-          //   top: config.App(context).appHeight(29.5) - 120,
-          //   child: Container(
-          //     width: config.App(context).appWidth(84),
-          //     height: config.App(context).appHeight(29.5),
-          //     child: Text(
-          //       S.of(context).lets_start_with_register,
-          //       style: Theme.of(context).textTheme.headline2.merge(TextStyle(color: Theme.of(context).primaryColor)),
-          //     ),
-          //   ),
-          // ),
-          Positioned(
-          top: config.App(context).appHeight(29.5) - 50,
-          child: Container(
-           
-            decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10)), boxShadow: [
-              BoxShadow(
-                blurRadius: 50,
-                color: Theme.of(context).hintColor.withOpacity(0.2),
-              )
-            ]),
-            margin: EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
-            padding: EdgeInsets.symmetric(vertical: 50, horizontal: 27),
-            width: config.App(context).appWidth(88),
-//              height: config.App(context).appHeight(55),
-            child: Form(
-              key: _con.loginFormKey,
-              child: Column(
-               
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  TextField(
-                    keyboardType: TextInputType.text,
-                    onChanged: (input) { 
-                      _con.user.name = input;
-                      setUserName(input);
-                      },
-
-                    //validator: (input) => input.length < 3 ? S.of(context).should_be_more_than_3_letters : null,
-                    decoration: InputDecoration(
-                      labelText: S.of(context).full_name,
-                      labelStyle: TextStyle(color: Theme.of(context).accentColor),
-                      contentPadding: EdgeInsets.all(12),
-                      hintText: S.of(context).john_doe,
-                      hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
-                      prefixIcon: Icon(Icons.person_outline, color: Theme.of(context).accentColor),
-                      border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
-                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    onChanged: (input) { 
-                      _con.user.email = input;
-                      setUserEmail(input);
-                    },
-                    //validator: (input) => !input.contains('@') ? S.of(context).should_be_a_valid_email : null,
-                    decoration: InputDecoration(
-                      labelText: S.of(context).email,
-                      labelStyle: TextStyle(color: Theme.of(context).accentColor),
-                      contentPadding: EdgeInsets.all(12),
-                      hintText: 'johndoe@gmail.com',
-                      hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
-                      prefixIcon: Icon(Icons.alternate_email, color: Theme.of(context).accentColor),
-                      border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
-                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  TextField(
-                    obscureText: _con.hidePassword,
-                    onChanged:(input) {
-                      _con.user.password = input;
-                      password = input;
-                      setPassword(input);
-                    }, 
-                    //buildCounter: (input) => input.length < 6 ? S.of(context).should_be_more_than_6_letters : null,
-                    decoration: InputDecoration(
-                      labelText: S.of(context).password,
-                      labelStyle: TextStyle(color: Theme.of(context).accentColor),
-                      contentPadding: EdgeInsets.all(12),
-                      hintText: '••••••••••••',
-                      hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
-                      prefixIcon: Icon(Icons.lock_outline, color: Theme.of(context).accentColor),
-                      suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _con.hidePassword = !_con.hidePassword;
-                          });
-                        },
-                        color: Theme.of(context).focusColor,
-                        icon: Icon(_con.hidePassword ? Icons.visibility : Icons.visibility_off),
-                      ),
-                      border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                      focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
-                      enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
-                    ),
-                  ),
-                  SizedBox(height: 30),
-                  BlockButtonWidget(
-                    text: Text(
-                      S.of(context).register,
-                      style: TextStyle(color: Theme.of(context).primaryColor),
-                    ),
-                    color: Theme.of(context).accentColor,
-                    onPressed: () {
-                          checkUser();
-                          
-                    },
-                  ),
-
-
-                  ///-------------------------------------------------------------
-                  ///------- google button signin --------------------------------
-                  SizedBox(height: 25),
-
-                 FlatButton(
-                   onPressed: () {
-                     signInWithGoogle();
-                   },
-                   padding: EdgeInsets.symmetric(vertical: 14),
-                   color: Theme.of(context).accentColor.withOpacity(0.1),
-                   shape: StadiumBorder(),
-                   child: Text(
-                     'Register with Google',
-                     textAlign: TextAlign.start,
-                     style: TextStyle(
-                       color: Theme.of(context).accentColor,
-                     ),
-                   ),
-                 ),
-
-                 //--------------------------------------------------
-                 //------- facebook button login ---------------------
-
-                  SizedBox(height: 25),
-
-                 FlatButton(
-                   onPressed: () async{
-                     signInFB().whenComplete(() {
-                      
-                      Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
-                    });
-                   
-                   },
-                   padding: EdgeInsets.symmetric(vertical: 14),
-                   color: Theme.of(context).accentColor.withOpacity(0.1),
-                   shape: StadiumBorder(),
-                   child: Text(
-                     'Register with Facebook',
-                     textAlign: TextAlign.start,
-                     style: TextStyle(
-                       color: Theme.of(context).accentColor,
-                     ),
-                   ),
-                 ),
-                 
-                ],
-              ),
-
+        body:  ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+            
               
+              // Positioned(
+              //   top: 0,
+              //   child: Container(
+              //     width: config.App(context).appWidth(100),
+              //     height: config.App(context).appHeight(29.5),
+              //     decoration: BoxDecoration(color: Theme.of(context).accentColor),
+              //   ),
+              // ),
+              // Positioned(
+              //   top: config.App(context).appHeight(29.5) - 120,
+              //   child: Container(
+              //     width: config.App(context).appWidth(84),
+              //     height: config.App(context).appHeight(29.5),
+              //     child: Text(
+              //       S.of(context).lets_start_with_register,
+              //       style: Theme.of(context).textTheme.headline2.merge(TextStyle(color: Theme.of(context).primaryColor)),
+              //     ),
+              //   ),
+              // ),
+              child:Container(
+               
+                decoration: BoxDecoration(color: Theme.of(context).primaryColor, borderRadius: BorderRadius.all(Radius.circular(10)), boxShadow: [
+                  BoxShadow(
+                    blurRadius: 50,
+                    color: Theme.of(context).hintColor.withOpacity(0.2),
+                  )
+                ]),
+                margin: EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                padding: EdgeInsets.symmetric(vertical: 50, horizontal: 27),
+                width: config.App(context).appWidth(88),
+//              height: config.App(context).appHeight(55),
+                child: Form(
+                  key: _con.loginFormKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      TextField(
+                        keyboardType: TextInputType.text,
+                        onChanged: (input) { 
+                          _con.user.name = input;
+                          setUserName(input);
+                          },
+
+                        //validator: (input) => input.length < 3 ? S.of(context).should_be_more_than_3_letters : null,
+                        decoration: InputDecoration(
+                          labelText: S.of(context).full_name,
+                          labelStyle: TextStyle(color: Theme.of(context).accentColor),
+                          contentPadding: EdgeInsets.all(12),
+                          hintText: S.of(context).john_doe,
+                          hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
+                          prefixIcon: Icon(Icons.person_outline, color: Theme.of(context).accentColor),
+                          border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      TextField(
+                        keyboardType: TextInputType.emailAddress,
+                        onChanged: (input) { 
+                          _con.user.email = input;
+                          setUserEmail(input);
+                        },
+                        //validator: (input) => !input.contains('@') ? S.of(context).should_be_a_valid_email : null,
+                        decoration: InputDecoration(
+                          labelText: S.of(context).email,
+                          labelStyle: TextStyle(color: Theme.of(context).accentColor),
+                          contentPadding: EdgeInsets.all(12),
+                          hintText: 'johndoe@gmail.com',
+                          hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
+                          prefixIcon: Icon(Icons.alternate_email, color: Theme.of(context).accentColor),
+                          border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      TextField(
+                        obscureText: _con.hidePassword,
+                        onChanged:(input) {
+                          _con.user.password = input;
+                          password = input;
+                          setPassword(input);
+                        }, 
+                        //buildCounter: (input) => input.length < 6 ? S.of(context).should_be_more_than_6_letters : null,
+                        decoration: InputDecoration(
+                          labelText: S.of(context).password,
+                          labelStyle: TextStyle(color: Theme.of(context).accentColor),
+                          contentPadding: EdgeInsets.all(12),
+                          hintText: '••••••••••••',
+                          hintStyle: TextStyle(color: Theme.of(context).focusColor.withOpacity(0.7)),
+                          prefixIcon: Icon(Icons.lock_outline, color: Theme.of(context).accentColor),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _con.hidePassword = !_con.hidePassword;
+                              });
+                            },
+                            color: Theme.of(context).focusColor,
+                            icon: Icon(_con.hidePassword ? Icons.visibility : Icons.visibility_off),
+                          ),
+                          border: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                          focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.5))),
+                          enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Theme.of(context).focusColor.withOpacity(0.2))),
+                        ),
+                      ),
+                      SizedBox(height: 30),
+                      BlockButtonWidget(
+                        text: Text(
+                          S.of(context).register,
+                          style: TextStyle(color: Theme.of(context).primaryColor),
+                        ),
+                        color: Theme.of(context).accentColor,
+                        onPressed: () {
+                              checkUser();
+                              
+                        },
+                      ),
+
+
+                      ///-------------------------------------------------------------
+                      ///------- google button signin --------------------------------
+                      SizedBox(height: 25),
+
+                     FlatButton(
+                       onPressed: () {
+                         signInWithGoogle();
+                       },
+                       padding: EdgeInsets.symmetric(vertical: 14),
+                       color: Theme.of(context).accentColor.withOpacity(0.1),
+                       shape: StadiumBorder(),
+                       child: Text(
+                         S.of(context).signwithGoogle,
+                         textAlign: TextAlign.start,
+                         style: TextStyle(
+                           color: Theme.of(context).accentColor,
+                         ),
+                       ),
+                     ),
+
+                     //--------------------------------------------------
+                     //------- facebook button login ---------------------
+
+                      SizedBox(height: 25),
+
+                     FlatButton(
+                       onPressed: () async{
+                         signInFB().whenComplete(() {
+                          
+                          Navigator.of(context).pushReplacementNamed('/Pages', arguments: 2);
+                        });
+                       
+                       },
+                       padding: EdgeInsets.symmetric(vertical: 14),
+                       color: Theme.of(context).accentColor.withOpacity(0.1),
+                       shape: StadiumBorder(),
+                       child: Text(
+                         S.of(context).signwithFacebook,
+                         textAlign: TextAlign.start,
+                         style: TextStyle(
+                           color: Theme.of(context).accentColor,
+                         ),
+                       ),
+                     ),
+                     
+                    ],
+                  ),
+
+                  
+                  ),
+                 
               ),
-             
-          ),
             ),
-          Positioned(
-            bottom: 10,
+        
+    
+          Container(
             child: FlatButton(
               onPressed: () {
                 Navigator.of(context).pushNamed('/Login');
@@ -479,8 +478,11 @@ void checkUser() async {
               child: Text(S.of(context).i_have_account_back_to_login),
             ),
           ),
-                 ] ),
+
+            ],
         ),
+                 
+    
        
     );
   }

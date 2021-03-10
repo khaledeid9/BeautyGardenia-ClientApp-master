@@ -99,6 +99,7 @@ class _MobileVerificationState extends StateMVC<MobileVerification> {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         TextField(
+          keyboardType: TextInputType.number,
           controller: _codeController,
         ),
 
@@ -119,7 +120,7 @@ class _MobileVerificationState extends StateMVC<MobileVerification> {
           
          auth.signInWithCredential(credential).then((UserCredential result){
                       _con.user.name = phoneNumber;
-                      _con.user.email ='beautygardenia@gmail.com';
+                      _con.user.email = phoneNumber+'@beautygardenia.com';
                         print('--///////////-- _con.user.name = (${ _con.user.name}) ----//////////////---');
                         print('-////////---_con.user.email = (${_con.user.email}) ---///////////----');
                 _con.registerwithPhoneNumber();
